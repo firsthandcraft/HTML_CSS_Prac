@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="input.jsp" method="post">
+
+이메일 :<input type="email" name="email"><br/>
+URL : <input type="url" name="url"><br/>
+전화번호 : <input type="tel" name="tel"><br/>
+색상 : <input type="color" name="color"><br/>
+월 : <input type="month" name="month"><br/>
+날 짜 : <input type="date" name="date"><br/>
+주 : <input type="month" name="week"><br/>
+시간 : <input type="time" name="time"><br/>
+
+
+지역 시간 : <input type="datetime-local" name="localdatetime"><br/>
+숫자 : <input type="number" name="number" min="1" max="10" step="2"><br/>
+범  위 : <input type="range" name="range" min="1" max="10" step="2"><br/>  
+
+이름 :<input type="text" name="name"><br/>
+학번 :<input type="text" name="number" size=10><br/>
+패스워드 :<input type="password" name="pass"><br/>
+
+성별 :<input type="radio" name="gender" value="male">남성<br/>
+     <input type="radio" name="gender" value="female">여성<br/> 
+
+과일선택 : 
+<input type="checkbox" name="fruits" value="apple" checked>Apple<br/> 
+<input type="checkbox" name="fruits" value="grape" >Grape<br/> 
+<input type="checkbox" name="fruits" value="orage" >orage<br/> 
+
+<select name="cars">
+<option value="bmw">BMW</option>
+<option value="benz">benz</option>
+<option value="hyundai" selected>현대자동차</option>
+<option value="kia">기아자동차</option>
+</select></br>
+
+<textarea name="feedback" rows="5" cols="50"></textarea>
+</br>
+
+물품가격 : 
+<input type="text" name="user"></br>
+수량 : 
+<input type="text" name="user"></br>
+
+<input type="button" value="계산" onclick="alert('10000원입니다.')"></br>
+
+
+<input type="submit" value="제출">
+<input type="reset" value="초기화">
+
+
+
+
+</form>
+</body>
+</html>
