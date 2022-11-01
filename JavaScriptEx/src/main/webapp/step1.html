@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var now = new Date();
+		document.write(now);
+		document.write("Helloworld");
+		
+		var x;
+		x="hello world";
+		alert(x);
+		
+		
+		//화면에 출력하기
+		var s= "hello World";
+		var t= "How are you"+"today?";
+		
+		document.write(s+"</br>");
+		document.write(t+"</br>");
+		document.write(t.toUpperCase+"</br>");
+		
+		//이름 입력
+		var name= prompt("당신의 이름을 입력하세요:");
+		document.write("반ㄱ삽습니다."+name+"님");
+		
+		//답변 함수
+		var user= confirm("confirm()은 말해 yes or no");
+		
+		
+		//숫자로 형 변환
+		//자바스크립트는 자료형이 없다. 
+		var x,y;
+		var input;
+		
+		input = prompt("정수를 입력하세요 : ");
+		x= parseInt(input);
+		input = prompt("정수를 입력하세요 : ");
+		y= parseInt(input);
+		
+		document.write (x+y+"</br>");
+		
+		
+		
+	</script>
+	
+	<p>자바스크립트는 이벤트에 반응 할수 있다. </p>
+	<button type="button" onclick="alert('반갑습니다.')">클릭</button>
+</body>
+<script type="text/javascript" src="myjavascript.js"></script>
+</html>

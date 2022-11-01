@@ -4,13 +4,52 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
-.REd{color:dedede;background-color:red;}
+table{width:100%;text-align:center;font-size:20px;}
+th{padding:4px 0;}
+thead{color:dedede;background-color:blue; color:#fff;}
+tbody tr:nth-child(even){background-color:yellow;}
+tbody tr:nth-child(3){background-color:green;}
+tbody tr:last-child{background-color:red;}
+tbody tr:first-child{background-color:pink;}
 
 </style>
 </head>
 <body>
  <h1>test01</h1>
-<p class="REd">컬러지정하기 </p>>
+<table>
+	<thead>
+		<th>이름</th>
+		<td>이메일</td>
+	</thead>
+	
+	<tbody>
+	<tr>
+		<th>김철수</th>
+		<td>chul@gmail.com</td>
+	</tr>
+	<tr>
+		<th>김영희</th>
+		<td>chul@gmail.com</td>
+	</tr>
+	<tr class = "f">
+		<th>홍길동</th>
+		<td>chul@gmail.com</td>
+	</tr>
+	<tr>
+		<th>김수진</th>
+		<td>chul@gmail.com</td>
+	</tr>
+	<tr>
+		<th>김수진</th>
+		<td>chul@gmail.com</td>
+	</tr>
+	<tr>
+		<th>김수진dddd</th>
+		<td>chul@gmail.com</td>
+	</tr>
+	</tbody>
+
+</table>
 
 </body>
 </html>
