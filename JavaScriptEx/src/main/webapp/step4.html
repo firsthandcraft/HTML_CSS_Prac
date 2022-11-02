@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<h1 id="test">this is a heading</h1>
+
+	<button type="button" onClick="func()">클릭하세요.</button>
+</body>
+		<script type="text/javascript">
+		function func(){
+			var e = document.getElementById("test");
+			e.style.color="red";
+		}
+		
+		//
+		var msg="";
+		var time= new Date().getHours();
+		if(time<12){//12시 이전
+			msg= "Good morning";
+		} else if(time<18){//오후 6시 이전
+			msg="Good afternoon";
+		}else {
+			msg="Good evening";
+		}
+		alert(msg);
+
+	</script>
+</html>

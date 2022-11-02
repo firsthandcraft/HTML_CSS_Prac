@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>domtree</title>
+<script type="text/javascript">
+function showDetails(){
+	//폼약식에 접근 : document.폼이름.컴포넌트 이름,이름value
+	//userName 이름의 text value을 반환받는다. 
+	var name= document.userForm.userName.value;
+	//dom tree ---> document 안에 form 안에 userName안에 value 값
+	
+	//메세지 창을 띄운다.
+	alert(name);
+	
+	// 값이 없을 경우 
+	document.userForm.userName.value="";
+	//공란을 입력하여 데이터를 초기화한다. 
+	
+	//userName 이름의 textcomponet에 포커스를 준다. 
+	//실행후 커서를 다시 textcomponet에 위치시킨다. 
+	document.userForm.userName.focus;
+}
+</script>
+</head>
+<body>
+    <form action="#" method="get" name= "userForm" onsubmit="return enter()">
+        이름 : <input type="text" name= "userName"><br>
+    	<input type="button" value="확인" onClick="showDetails()"><br>
+ 
+    </form>
+</body><!-- 리턴값이 있으면 아래 스크립트를 만들어줘야한다.  -->
+<script type="text/javascript">
+
+</script>
+</html>

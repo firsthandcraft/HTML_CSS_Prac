@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>numberRandom</title>
+<style>
+*{font-family:sans-serif;}
+body{width:50%;max-width:800px;min-width:480px;margin:0auto;}
+.lastResult{color:white;padding:3px;}
+</style>
+<script type="text/javascript">
+	//랜덤 정답
+	//floor 소수점 랜덤 번호 생성 으로 100을 곱해주고 1부터 시작이니 더해줌
+	var radomNumber = Math.floor(Math.random()*100)+1;
+	var guessTT=document.getElementById("guesses");
+	var ggBtn = documemt.querySelector("btn");
+	var ggKK = documemt.querySelector("keyGuess");
+	var HintTT =documemt.getElementById("result").value=result;
+	
+	var GuessCount=1;//추측횟수
+	var chances= 5;//남은 횟수
+	var gameOver=false;
+	
+	
+	var result= ""//결과 메세지
+	
+	function checkGuess(){
+		var userGuess = Number(guessField.value);
+		
+		if(GuessCount===1){
+			ggKK.textContent="키 입력값 :"
+		}
+		ggKK.textContent+=userGuess;
+		
+		//
+		
+		if(userGuess==radom){
+			result="성공";
+		} else if(userGuess==5){
+			alert("")
+			
+		} else{result="높다";}
+	}
+		} else if(userGuess<radom){
+			result="작다";
+		} else{result="높다";}
+	}
+	
+	function guess(){
+		chances --;
+		getElementById("numChance").innerText=(chances+"번");
+		if(chances<1){
+			gameOver=ture;
+			ggBtn.disabled=ture;
+		}
+		
+		var number= parseInt(documemt.getElementById("user").value);
+		nGuesses++;
+		
+		
+		
+		//힌트
+		documemt.getElementById("result").value=result;
+		documemt.getElementById("guesses").value=nGuesses;
+		return true;
+		
+	}
+
+</script>
+</head>
+
+<body>
+	<h1 id="test">숫자맞추기 게임</h1>
+	<p>1~100의 숫자중 하나의 랜덤숫자 맞추기</p>
+	<form>
+		 <fieldset>
+	        <legend>1~100의 숫자 입력 </legend>
+			
+			숫자 입력 : <input type="text" id="guessField" size="5"> 
+			<input type="button" value="확인" id="btn" onClick="guess()"> 
+		
+		
+			<p>남은 횟수 <span class="numChance"></span>번</p>
+			<legend>추측횟수 : </legend>
+			<input type="text" id="guesses" size="5"> 	
+			<legend>힌트 :</legend>
+			<input type="text" id="result" size="5"> 
+			<p class="keyGuess">
+		</fieldset>
+	</form>
+
+</body>
+
+</html>

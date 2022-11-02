@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>login</title>
+<script type="text/javascript">
+function deposit(){
+	//0원넘고 숫자 표기 금액 액수를 넘기기
+	var moneyTxt=document.bankForm.money;
+	var flag= window.isNaN(moneyTxt.value);
+	
+	 if(moneyTxt.value=""){
+			alert("공백이다.숫자입력");
+	}else if(flag){
+		alert("숫자입력");
+	}else if(moneyTxt.value<=0){
+		alert("0원아닌 숫자 금액입력");
+	}else{
+		alert(moneyTxt.value+"입금완료");	
+	}
+	
+	moneyTxt.value="";
+	moneyTxt.focus();
+}
+</script>
+</head>
+<body>
+  	<form name="bankForm">
+  	 입금액:
+  	 <input type="text" name="money">
+  	 <input type="button" value="입금" onClick="deposit()">
+  	</form>
+  	
+</body><!-- 리턴값이 있으면 아래 스크립트를 만들어줘야한다.  -->
+
+<script type="text/javascript">
+</script>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>loginform</title>
+<script type="text/javascript">
+function registerCheck(){
+	var idTxt = document.regForm.userId;//name=userId
+	var passwordTxt=document.regForm.userPass;
+	var passConfirmTxt=document.regForm.pass_confirm;
+	var genderTxt=document.regForm.gender;
+	var hobbyTxt=document.regForm.hobby;
+	var locTxt=document.regForm.loc;
+	//ID
+	if(idTxt.value==""){
+		alert("빈공간이 존재합니다.");
+		return false;
+	} 
+	if(idTxt.value.length>10 || idTxt.value.length>5 ){
+		alert("아이디는 5자 이상 10보다 10자 이하");
+		idTxt.value="";
+		idTxt.focus();
+		return false;
+	}
+	//PW
+	if(passwordTxt.value =="" ){
+		alert("빈공간이 존재합니다.");
+		return false;
+	}
+	if(passwordTxt.value.length>10 || passwordTxt.value.length>5 ){
+		alert("PW는 5자 이상 10보다 10자 이하");
+		idTxt.value="";
+		idTxt.focus();
+		return false;
+	}
+	if(passwordTxt.value != pass_confirm.value ){
+		alert("비밀번호 불일치");
+		pass_confirm.value="";
+		passwordTxt.value="";
+		passwordTxt.focus();		
+		return false;
+	}
+	//Gender
+	var flag= true;
+	for(i=0;i<genderTxt.length;i++){
+		if(genderTxt[i].checked){
+			alert("젠더체크 완료");
+			flag=false;
+			break;
+		}
+	}
+	if(flag){
+		alert("성별 체크바람");
+		return false;
+	}
+	//Hobby
+	var flag1= true;
+	for(i=0;i<hobbyTxt.length;i++){
+		if(hobbyTxt[i].checked){
+			alert("hobby체크 완료");
+			flag1=false;
+			break;
+		}
+	}
+	if(flag1){
+		alert("hobby 체크바람");
+		return false;
+	}
+	//locTxt.value=="" ? alert("지역 선택하세요") : alert(locTxt.value+"지역 선택");
+	if(locTxt.value==""){
+		alert("지역선댁바람");
+		return false;
+	}
+	
+}
+
+</script>
+</head>
+<body>
+  	<form  method="get" name="regForm" onsubmit="registerCheck()">
+  	<!--action="#" method="post"onsubmit 제출하는 버튼 조건이 안맞으면 이 형태를 멈추겠다는 의미 함수 안에 return false했을경우 -->
+  	<legend>회원가입</legend>
+	<!-- 회원가입<br>
+  	아이디 
+  	패스워드 
+  	패숴드확인
+  	성별 -->
+	<p>
+	<label for="userId">아이디</label>
+	<input id="userId" name="userId" type="text" 
+	autocomplete="off" placeholder="12자 이내로 해 주세요"><!--maxlength="12" autofocus required -->
+	 <!-- required는 아이디 패스워드중하나 입력안하고 전송버튼누르면 입력하세요 메세지뜸 -->
+	</p>
+	
+	<p>
+	<label for="userPass">패스워드</label>
+	<input type="password" id="userPass" name="userPass" placeholder="최소 6글자 이내로 해 주세요." >
+	<!-- minlength="6" required -->
+	</p>
+	
+  	<p>
+	<label for="pass_confirm">패스워드확인</label>
+	<input type="password" id="pass_confirm" name="pass_confirm" placeholder="최소 6글자 이내로 해 주세요." >
+	<!--  minlength="6"required -->
+	</p>
+	
+	<p>
+	<label>남<input type="radio" name="gender" ></label>
+	<label>여<input type="radio" name="gender" checked></label>
+	</p>
+	
+	<p>
+	<label for="hobby">체크박스 취미</label><br>
+	<label>독서<input type="checkbox" id="hobby" name="hobby" value="독서"></label>
+	<label>운동<input type="checkbox" id="hobby" name="hobby" value="운동"></label>
+	<label>게임<input type="checkbox" id="hobby" name="hobby" value="게임"></label>
+	</p>
+	
+	<p>
+	<select name="loc">
+	<option value="">셀렉트 지역</option>
+	<option value="서울">서울</option>
+	<option value="경기">경기</option>
+	<option value="충청">충청</option>
+	</select>
+	</p>
+	
+  	
+  	<input type="submit" value="확인" >
+  	</form>
+</body><!-- 리턴값이 있으면 아래 스크립트를 만들어줘야한다. button 에 onClick="registerCheck()" -->
+
+<script type="text/javascript">
+
+</script>
+</html>

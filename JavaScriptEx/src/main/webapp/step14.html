@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>login</title>
+<script type="text/javascript">
+function login(){
+	var id = document.LoginForm.userId;
+	
+	if(id.value==""){
+		alert("아이디를 입력하세요.");	
+	} else{
+		alert(id.value);
+		id.value="";
+	}
+	
+}
+</script>
+</head>
+<body>
+    <form action="#" method="get" name= "LoginForm">
+        아이디 : <input type="text" name= "userId"><br>
+    	<input type="button" value="로그인" onClick="login()"><br>
+ 
+    </form>
+</body><!-- 리턴값이 있으면 아래 스크립트를 만들어줘야한다.  -->
+<script type="text/javascript">
+
+</script>
+</html>

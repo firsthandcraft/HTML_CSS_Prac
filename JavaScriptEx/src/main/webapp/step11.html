@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>자바스크립트 함수의 리턴값을 받는다</title>
+<script type="text/javascript">
+	function test1(){
+		alert("방가");
+	}
+	function test2(name, mess){
+		alert(name+"님"+mess);
+	}
+	function test3(i,j){
+		return i+j;
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="버튼1" onclick="test1()"><hr>
+	<input type="button" value="버튼2" onclick="test2('보아','방가')"><hr>
+</body><!-- 리턴값이 있으면 아래 스크립트를 만들어줘야한다.  -->
+
+<script type="text/javascript">
+	sum= test3(1,2);//자바스크립트 함수의 리턴값을 받는다. 
+	document.write(sum);
+</script>
+</html>

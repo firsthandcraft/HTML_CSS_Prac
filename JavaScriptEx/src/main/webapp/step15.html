@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>login</title>
+<script type="text/javascript">
+function ageF(){
+	var age = document.ageForm.userAge;
+	var flag= window.isNaN(age.value);
+	
+	if(flag){alert("숫자입력");
+		age.value="";
+		age.focus();
+		return
+	}
+	if(age.value>19){
+		alert(age.value)
+	}else if(age.value==""){
+		alert("공백이니 숫자입력");
+	} else{
+		alert("더먹고와");
+	}
+	age.value="";	
+	age.focus();
+}
+</script>
+</head>
+<body>
+  	<form action="#" method="post" name="ageForm">
+  	 나이 :
+  	 <input type="text" name="userAge">
+  	 <input type="button" value="age" onClick="ageF()">
+  	</form>
+</body><!-- 리턴값이 있으면 아래 스크립트를 만들어줘야한다.  -->
+<script type="text/javascript">
+
+</script>
+</html>

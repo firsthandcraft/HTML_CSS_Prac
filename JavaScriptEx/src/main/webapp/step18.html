@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>이상형</title>
+<script type="text/javascript">
+function checkTest(){
+	var ag = document.checkForm.angel;
+	var str="";
+	
+	
+	for(i=0;i<ag.length;i++){
+		if(ag[i].checked){
+			str+=ag[i].value+"";
+		}
+	}
+	/*if(str==""){
+		alert("당신은 이상형없다.");
+	}else{ 
+		alert("당신은 이상형"+str);
+	}
+	*/
+	str=="" ? alert("당신은 이상형없다.") : alert("당신은 이상형"+str);
+}
+
+</script>
+</head>
+<body>
+  	<form action="#" method="post" name="checkForm">
+  	이상형을 선택하세요<br>
+  	 <input type="checkbox" name="angel" value="어깡">어깡<br>
+  	 <input type="checkbox" name="angel" value="집돌이순이">집돌이순이<br>
+  	 <input type="checkbox" name="angel" value="울보">울보<br>
+  	 <input type="button" value="확인" onClick="checkTest()">
+  	</form>
+</body><!-- 리턴값이 있으면 아래 스크립트를 만들어줘야한다.  -->
+
+<script type="text/javascript">
+
+</script>
+</html>

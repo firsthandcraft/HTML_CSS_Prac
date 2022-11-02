@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>fruits</title>
+<script type="text/javascript">
+function enter(){
+	flag=confirm("성인사이트로 이동합니다. 정말 입장하세겠습니까?");//확인 
+	if(flag==false){
+		return false;//false를 리턴하여 전송이 안되게 한다.
+	}
+}
+</script>
+</head>
+<body>
+	
+    <!-- onsubmit:sumit 버튼을 눌렀을때 동작
+        onsubmit="reutrn aaa()"는 자바스크립드 함수에서return false를 했을때 전송시키지 않기 위해서 추가-->
+    <!-- action - 에 넘김 .. method 방식 -->
+    <form action="a.jsp" method="get" onsubmit="enter()">
+        <input type="button" value="그냥버튼"><br>
+    	<!-- submit:form 에서 지정한 action 경로로 데이터가 전송 -->
+    	<input type="submit" value="전송버튼"><br>
+    </form>
+</body><!-- 리턴값이 있으면 아래 스크립트를 만들어줘야한다.  -->
+<script type="text/javascript">
+
+</script>
+</html>
