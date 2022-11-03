@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>servletTest3</title>
+<script>
+	function checkM(){
+		var ag= document.angelForm.angel;
+		var flag=true;
+		for(var i=0;i<ag.length;i++){
+			if(ag[i].checked){
+				alert("체크완료");
+				flag=false;
+				break;
+			}
+		}
+		if(flag){
+			alert("체크바람");			
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="RadioServlet" method="get" name="angelForm" onsubmit="return checkM()">
+		<legend>당신이 좋아하는 동물은?</legend>
+		<label>해파리<input type="radio" name="angel" value="a"></label>
+		<label>펭귄<input type="radio" name="angel" value="b"></label>
+		<label>코알라<input type="radio" name="angel" value="c"></label>
+		<input type="submit" value="찜하기">
+	</form>
+	
+</body>
+</html>

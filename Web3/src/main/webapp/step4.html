@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>servletTest3</title>
+<script>
+	function checkM(){
+		var ag= document.aniForm.ani;
+		if(ag.value==""){
+			alert("체크바람");
+			ag.value="";
+			ag.focus();
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="SelectServlet" method="get" name="aniForm" onsubmit="return checkM()">
+		<select name="ani">
+			<option value="">선택바람</option>
+			<option value="a">해파리</option>
+			<option value="b">펭퀸</option>
+			<option value="c">코알라</option>		
+		</select>
+		<input type="submit" value="동물선택">
+	</form>
+	
+</body>
+</html>

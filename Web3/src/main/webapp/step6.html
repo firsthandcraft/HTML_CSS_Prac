@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>servletCheckBox</title>
+<script>
+	function checkM(){
+		var menuCh= document.CheckBoxForm.menu;
+		var flag=true;
+		for(var i=0; i<menuCh.length;i++){
+			if(menuCh[i].checked){
+				alert("체크완료");
+				flag=false;
+				break;
+			}
+		}
+		if(flag){
+			alert("체크해줘");
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+<!-- -->
+<!-- get 방식- 있는거 불러오기 좋음연속적 호출좋음
+// 회원가입 대량의 자료 , 보안을 위해 post 방식 - 다만 연속적 호출이 안된다.   -->
+	<form action="CheckBoxServlet" method="post" name="CheckBoxForm" onsubmit="return checkM()">
+		<label>울면<input type="checkbox" name="menu" value="울면"></label>
+		<label>우동<input type="checkbox" name="menu" value="우동"></label>
+		<label>기스면<input type="checkbox" name="menu" value="기스면"></label>	
+		<input type="submit" value="checkOk">
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>servletLogin</title>
+<script>
+	function checkL(){
+		var idTxt= document.loginForm.userId;
+		var passwordTxt= document.loginForm.userPw;
+		if(idTxt.value=="" || passwordTxt.value=="" ){
+			alert("빈공간이 존재합니다.");
+			idTxt.value="";
+			passwordTxt.value="";
+			idTxt.focus();
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+<!-- 아이디 java pw-abcd -->
+<!-- get 방식- 있는거 불러오기 좋음연속적 호출좋음
+// 회원가입 대량의 자료 , 보안을 위해 post 방식 - 다만 연속적 호출이 안된다.   -->
+	<form action="LoginServlet" method="get" name="loginForm" onsubmit="return checkL()">
+		로그인<input type="text" name="userId">
+		비번<input type="password" name="userPw">		
+		<input type="submit" value="login">
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>servletTest2</title>
+<script>
+	function checkM(){
+		var friendNameTxt= document.nameForm.friendName;
+		if(friendNameTxt.value==""){
+			alert("빈공란이 존재");
+			friendNameTxt.value="";
+			friendNameTxt.focus;			
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<!-- get방식 -->
+	<form action="TextServlet" method="get" name="nameForm" onsubmit="return checkM()">
+		<legend>친구이름 : </legend>
+		<input type="text" name="friendName">
+		<input type="submit" value="서버전송">
+	</form>
+	
+</body>
+</html>

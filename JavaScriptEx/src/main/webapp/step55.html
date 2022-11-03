@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+
+        var computerNumber = 53; // 정답
+        var nGuesses = 0; //추측 횟수
+        function guess() {
+
+            var result = ""; // 결과 메세지
+            var number = parseInt(document.getElementById('user').value);
+            nGuesses++;
+            document.getElementById('guesses').value = nGuesses;
+            if (number == computerNumber) {
+                result = "정답";
+            } else if (number > computerNumber) {
+                result = "Down";
+            } else {
+                result = "Up";
+            }
+            document.getElementById('result').value = result;
+            return true;
+        }
+
+    </script>
+</head>
+
+<body>
+
+
+    <form>
+        숫자 :
+        <input type="text" id="user" size="5">
+        <button type="button" onclick="guess()" value="확인">확인</button>
+
+        추측 횟수:<input type="text" id="guesses" size="5">
+        힌트:<input type="text" id="result" size="16">
+
+    </form>
+</body>
+
+</html>

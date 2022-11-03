@@ -11,61 +11,78 @@ body{width:50%;max-width:800px;min-width:480px;margin:0auto;}
 <script type="text/javascript">
 	//랜덤 정답
 	//floor 소수점 랜덤 번호 생성 으로 100을 곱해주고 1부터 시작이니 더해줌
+	
 	var radomNumber = Math.floor(Math.random()*100)+1;
-	var guessTT=document.getElementById("guesses");
-	var ggBtn = documemt.querySelector("btn");
-	var ggKK = documemt.querySelector("keyGuess");
-	var HintTT =documemt.getElementById("result").value=result;
 	
-	var GuessCount=1;//추측횟수
-	var chances= 5;//남은 횟수
-	var gameOver=false;
+	 
+	 
+	var userN=document.getElementById("userNum");//숫자
+	var guessS= document.querySelector("guessSubmit");//확인버튼
+	var numC = document.getElementById("numChance");//남은횟수
+	
+	//let guessCount = 1;//추측횟수
+	//var guessesG =document.getElementById("guesses");//추측횟수 5 4 3 2 1
+	//var guessesK =document.getElementById("guessesKey");//추측입력값 12,14,15
 	
 	
-	var result= ""//결과 메세지
+	let hintMessage="";//힌트메세지
+	var Hint = document.getElementById('result');//힌트
 	
-	function checkGuess(){
-		var userGuess = Number(guessField.value);
-		
-		if(GuessCount===1){
-			ggKK.textContent="키 입력값 :"
-		}
-		ggKK.textContent+=userGuess;
-		
-		//
-		
-		if(userGuess==radom){
-			result="성공";
-		} else if(userGuess==5){
-			alert("")
-			
-		} else{result="높다";}
-	}
-		} else if(userGuess<radom){
-			result="작다";
-		} else{result="높다";}
-	}
+	let resetButton;
+	//빈칸일경우 숫자를 입력바람
 	
+	//문자일경우 숫자를 입력바람
+	
+	//추측입력값 
+	function CheckguessCount(){
+		var guessesK =Number(userN.value);//추측입력값 숫자입력에서 받아오기
+		 if (guessCount === 1) {
+			 let guessesKContent = '기 입력값: ';
+         }
+		 guessesK.value += guessesK + guessesKContent;
+	
+	
+	//추측함수
 	function guess(){
-		chances --;
-		getElementById("numChance").innerText=(chances+"번");
-		if(chances<1){
-			gameOver=ture;
-			ggBtn.disabled=ture;
-		}
+		guessesG++;//추측횟수 추가
+		if(radomNumber == userN){
+			hintMessage="정답이다."
+				userN.value="";
+		} else if (guessCount === 5) {
+            lastResult.textContent = '안타깝네요. 10회의 기회를 다 쓰셨습니다.';
+            setGameOver();
+        } else {
+        	if (userN > radomNumber) {
+                result = "Down";
+            } else if (userN < radomNumber){
+                result = "Up";
+            }
+        }
+			
 		
-		var number= parseInt(documemt.getElementById("user").value);
-		nGuesses++;
 		
 		
-		
-		//힌트
-		documemt.getElementById("result").value=result;
-		documemt.getElementById("guesses").value=nGuesses;
-		return true;
-		
+	}
+	
+	//게임오버함수
+	function setGameOver(){
+		guessS.disabled = true;
+		 resetButton = document.createElement('button');
+         resetButton.textContent = '게임 재시작';
+         document.body.append(resetButton);
+         resetButton.addEventListener('click', resetGame);
 	}
 
+	//리셋
+	function resetGame(){
+		guessCount = 1;
+		userN.value="";
+		numC.value="";
+		guessesG.value="";
+		Hint.value="";
+	}
+	}
+	guessS.addEventListener('click', checkGuess);  
 </script>
 </head>
 
@@ -73,20 +90,18 @@ body{width:50%;max-width:800px;min-width:480px;margin:0auto;}
 	<h1 id="test">숫자맞추기 게임</h1>
 	<p>1~100의 숫자중 하나의 랜덤숫자 맞추기</p>
 	<form>
-		 <fieldset>
-	        <legend>1~100의 숫자 입력 </legend>
-			
-			숫자 입력 : <input type="text" id="guessField" size="5"> 
-			<input type="button" value="확인" id="btn" onClick="guess()"> 
+		 <legend>숫자입력</legend>
+        <input type="text" id="userNum" size="3">
+        <button type="button" value="확인" class="guessSubmit">확인</button>
 		
-		
-			<p>남은 횟수 <span class="numChance"></span>번</p>
-			<legend>추측횟수 : </legend>
-			<input type="text" id="guesses" size="5"> 	
-			<legend>힌트 :</legend>
-			<input type="text" id="result" size="5"> 
-			<p class="keyGuess">
-		</fieldset>
+		<legend>남은횟수 : </legend>
+        <input type="text" id="numChance" size="5">
+		<legend>추측횟수 : </legend>
+        <input type="text" id="guesses" size="5">
+        <legend>추측 입력값 : </legend>
+        <input type="text" id="guessesKey" size="5">
+        <legend>힌트 :</legend>
+        <input type="text" id="result" size="16">
 	</form>
 
 </body>
