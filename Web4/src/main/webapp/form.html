@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function checkAll(){
+		var userId= document.loginForm.userId;
+		var userPw= document.loginForm.userPw;
+		var userGen= document.loginForm.gender;
+		var userHo= document.loginForm.userHobby;
+		var userGra= document.loginForm.grade;
+		var userCon= document.loginForm.content;
+
+		//ID
+		if(userId.value==""){
+			alert("빈공간이 존재합니다.");
+			return false;
+		} 
+
+		//PW
+		if(userPw.value =="" ){
+			alert("빈공간이 존재합니다.");
+			return false;
+		}
+
+		//gender
+		var flag=true;
+		for(var i=0; i<userGen.length;i++){
+			if(userGen[i].checked){
+				alert("체크완료");
+				flag=false;
+				break;
+			}
+		}
+		if(flag){
+			alert("성별 체크해줘");
+			return false;
+		}
+		
+		//취미
+		var flag2=true;
+		for(var i=0; i<userHo.length;i++){
+			if(userHo[i].checked){
+				alert("취미 체크완료");
+				flag2=false;
+				break;
+			}
+		}
+		if(flag2){
+			alert("취미 체크 필요");
+			return false;
+		}
+		
+		//
+		if(userGra.value==""){
+			alert("학년을 선택하세요");
+			return false;
+		}
+	}
+	/**/
+</script>
+</head>
+<body>
+
+	<form action="/WebTest4/MyServlet" method="post" name="loginForm" onsubmit="return checkAll()">
+		<table border="1">
+			<thead>
+				<caption>회원가입</caption>
+			</thead>
+			<tbody>
+				<tr>
+					<th>id</th>
+					<td><input type="text" name="userId" ></td>
+				</tr>
+				<tr>
+					<th>pw</th>
+					<td><input type="password" name="userPw" ></td>
+				</tr>
+				<tr>
+					<th>성별</th>
+					<td>
+						<label>남<input type="radio" name="gender" value="남" checked></label>
+						<label>여<input type="radio" name="gender" value="여"></label>
+					</td>
+				</tr>
+				<tr>
+					<th>취미</th>
+					<td>
+						<label>축구<input type="checkbox" name="userHobby" value="축구"></label>
+						<label>탁구<input type="checkbox" name="userHobby" value="탁구"></label>
+						<label>농구<input type="checkbox" name="userHobby" value="농구"></label>
+						<label>애구<input type="checkbox" name="userHobby" value="애구"></label>
+					</td>
+				</tr>
+				<tr>
+					<th>학년</th>
+					<td>
+						<select name="grade">
+						<option value="">----</option>
+						<option value="1학년">1학년</option>
+						<option value="2학년">2학년</option>
+						<option value="3학년">3학년</option>
+						<option value="4학년">4학년</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>가입인사</th>
+					<td><textarea name="content" cols="50" rows="10" placeholder="욕이나 비방글은 금지입니다."></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="reset" value="초기화">
+						<input type="submit" value="가입">
+					</td>
+				</tr>
+			</tbody>
+		</table>	
+	</form>
+</body>
+</html>

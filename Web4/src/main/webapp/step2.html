@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function checkAll(){
+		var genderR= document.friendForm.gender;
+		var YearT= document.friendForm.kosta;
+		var FriendC= document.friendForm.friend;
+		//
+		var flag=true;
+		for(var i=0; i<genderR.length;i++){
+			if(genderR[i].checked){
+				alert("체크완료");
+				flag=false;
+				break;
+			}
+		}
+		if(flag){
+			alert("성별 체크해줘");
+			return false;
+		}
+		//기수 => number로 
+		var flag1= window.isNaN(YearT.value)
+		if(YearT.value==""){
+			alert("기수에 빈공간이 존재합니다.");
+			YearT.focus();
+			return false;
+		} else if(YearT.value<=0){
+			alert("0이상입력");
+			YearT.value="";
+			YearT.focus();
+			return false;
+		} else if(flag1){
+			alert("숫자입력");
+			YearT.value="";
+			YearT.focus();
+			return false;
+		} else{ alert(YearT.value+"입력완료");}
+		
+		//
+		
+		var flag2=true;
+		for(var i=0; i<FriendC.length;i++){
+			if(FriendC[i].checked){
+				alert("이상형 체크완료");
+				flag2=false;
+				break;
+			}
+		}
+		if(flag2){
+			alert("이상형체크해줘");
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="MapServlet" method="get" name="friendForm" onsubmit="return checkAll()">
+		<fieldset>
+			<legend>성별</legend>
+			<label>여<input type="radio" name="gender" value="여"></label>
+			<label>남<input type="radio" name="gender" value="남"></label>
+		</fieldset>
+		<fieldset>
+			<label for="kosta2">기수</label>
+			<input type="text" name="kosta" id="kosta2">
+		</fieldset>
+		<fieldset>
+			<legend>이상형</legend>
+			<label>낙타<input type="checkbox" name="friend" value="b"></label>	
+			<label>오징어<input type="checkbox" name="friend" value="lee"></label>	
+			<label>쿼카<input type="checkbox" name="friend" value="m"></label>	
+		</fieldset>
+		<fieldset>
+			<legend>이상형2</legend>
+			<label>피자<input type="checkbox" name="friend" value="피자"></label>	
+			<label>꽃등심<input type="checkbox" name="friend" value="꽃등심"></label>	
+			<label>순찌<input type="checkbox" name="friend" value="순찌"></label>	
+		</fieldset>
+		<input type="submit" value="checkOk">
+	</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function idCheck(){
+		var id= document.IdForm.userId;
+		var name= document.IdForm.nick;
+
+		if(id.value=="" || name.value==""){
+			alert("아이디또는 닉네임 입력바람");
+			id.value==""
+			name.value==""
+			id.focus();
+			return false;
+			
+		}
+	
+	}
+</script>
+</head>
+<body>
+	<form action="EnterServlet" method="get" name="IdForm" onsubmit="return idCheck()">
+		<fieldset>
+			<legend>로그인</legend>
+			<label>아이디<input type="text" name="userId"></label>
+			<label>닉네임<input type="text" name="nick"></label>
+		</fieldset>
+		<input type="submit" value="checkOk">
+	</form>
+</body>
+</html>
