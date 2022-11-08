@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- 작성 순서 
+1. 보이는 곳 html 
+2. MemberDao -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아이디 검색</title>
+<script>
+function idCheck(){
+	var idTxt = document.MemberForm.membership
+	if(idTxt.value == ""){
+		alert("아이디를 기재해주세요.");
+		idTxt.value="";
+		idTxt.focus();
+		return false;
+	}
+}
+</script>
+</head>
+
+<body>
+	<form  action="Findservlet" method="get" name="MemberForm" onsubmit="return idCheck()" >
+	 <label>아이디 검색 : <input type="text" name="membership" ></label>
+		<!-- autofocus required -->
+		<input type="submit" value="검색">
+	</form>
+</body>
+</html>

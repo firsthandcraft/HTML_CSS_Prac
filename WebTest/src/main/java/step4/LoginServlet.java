@@ -1,4 +1,4 @@
-package step1;
+package step4;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,21 +9,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.MemberDao;
 import model.MemberVO;
 
 /**
- * Servlet implementation class All
+ * Servlet implementation class LoginServlet
  */
-@WebServlet("/All")
-public class All extends HttpServlet {
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public All() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,26 +34,32 @@ public class All extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out= response.getWriter();
-		MemberDao dao= new MemberDao();
-		ArrayList<MemberVO> list = dao.getAllMemberList();
-		out.print("<table border='1'>");
-		out.print("<td>Id </td>");
-		out.print("<td>Name</td>");
-		out.print("<td>Pass</td>");
-		out.print("<td>Address </td>");
-		
-		for(int i = 0; i<list.size();i++) {
-			out.print("<tr>");
-			out.print("<td>"+list.get(i).getId()+"</td>");
-			out.print("<td>"+list.get(i).getPassword()+"</td>");
-			out.print("<td>"+list.get(i).getName()+"</td>");
-			out.print("<td>"+list.get(i).getAddress()+"</td>");
-			out.print("</tr>");
+		response.setContentType("text/html; charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		String id = request.getParameter("userId");
+		String password = request.getParameter("userPass");
+		MemberDao dao= new MemberDao();//db접근할려고 
+		ArrayList<MemberVO> list = dao.LoginMemberList(id,password);
+
+		//
+		if(list.size()!=0) {
+			HttpSession session = request.getSession();
+			session.setAttribute("userId",list);
+			for(int i = 0; i<list.size();i++) {
+				out.print(list.get(i).getName()+"입장환영");
+			}
+			out.print("<hr> <a href ='ShopServlet'>쇼핑몰 페이지로</a>");
+		} else {
+			out.print("<script>");
+			out.print("alert('로그인 실패');");
+			out.print("location.href='login.html';");
+			out.print("</script>");
 		}
-		out.print("</table>");
+		out.close();
 	}
+		
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

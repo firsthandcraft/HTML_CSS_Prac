@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+<script>
+function checkAll(){
+	var id= document.loginForm.userId;
+	var pw= document.loginForm.userPass;
+	//ID
+	if(id.value==""){
+		alert("빈공간이 존재합니다.");
+		id.focus();
+		return false;
+		
+	} 
+	//PW
+	if(pw.value =="" ){
+		alert("빈공간이 존재합니다.");
+		pw.focus();
+		return false;
+	}
+};
+</script>
+
+</head>
+<body>
+	<form action="LoginServlet" method="get" name="loginForm" onsubmit= "return checkAll()">
+		<label>id : <input type="text" name="userId"></label>
+		<label>pw : <input type="password" name="userPass"></label>
+		<input type="submit" value="전송">
+	</form>
+</html>
