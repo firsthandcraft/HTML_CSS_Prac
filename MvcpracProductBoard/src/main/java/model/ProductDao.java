@@ -145,7 +145,6 @@ public ProductVO getMember(int num) {
 			pstmt.executeUpdate();
 		} catch(Exception e) {
 			System.out.println(e);
-			
 		} finally {
 			discon();
 		}

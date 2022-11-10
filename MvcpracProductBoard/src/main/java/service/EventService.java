@@ -16,7 +16,6 @@ public class EventService {
 	public ArrayList<ProductVO> list(){
 		return dao.getAll();
 	}
-	
 	public ProductVO getMember(int num) {
 		return dao.getMember(num);
 	}
