@@ -44,7 +44,8 @@ public class RegisterServlet extends HttpServlet {
 		response.setContentType("text/html;charset=euc-kr");
 		response.setCharacterEncoding("euc-kr");
 		
-		String id = request.getParameter("id");
+		String id = request.getParameter("userId");
+		
 		String pwd= request.getParameter("pwd");
 		String name= request.getParameter("name");
 		String address= request.getParameter("address");

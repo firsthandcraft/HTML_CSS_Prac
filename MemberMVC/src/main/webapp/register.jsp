@@ -32,7 +32,7 @@ function checkId(){
 <body>
 <h3>회원가입</h3>
 	<form action="<%=request.getContextPath()%>/RegisterServlet" method="post" name= "registerForm" onsubmit="return registerCheck()">
-	id : <input type="text" name="id"><input type="button" value="중복확인" onClick="checkId()"><br>
+	id : <input type="text" name="userId"><input type="button" value="중복확인" onClick="checkId()"><br>
 	<label>pwd :<input type="password" name="pwd"></label><br>
 	<label>name :<input type="text" name="name"></label><br>
 	<label>address :<input type="text" name="address"></label><br>
