@@ -13,6 +13,8 @@ function intCheck(){
 		alert("값을 넣어주세요");
 		return false;
 	} else if(flag){
+		
+		
 		alert("숫자입력");
 		num.value="";
 		num.focus();
