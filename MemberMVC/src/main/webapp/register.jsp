@@ -24,7 +24,7 @@ function registerCheck(){
 	f.submit();
 }
 function checkId(){
-	var rId=document.registerForm.id.value;
+	var rId=document.registerForm.userId.value;
 	window.open("IdCheckServlet?id="+rId,"popup","resizable=no,toolbar=no, width=200, height=300");
 }
 </script>
