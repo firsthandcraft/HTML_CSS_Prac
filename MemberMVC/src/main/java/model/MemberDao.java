@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class MemberDao  {
 
@@ -99,5 +100,70 @@ public class MemberDao  {
 		}
 		return vo;
 	}
+	public void updateMember(MemberVO vo) throws SQLException{
+		con();
+		
+		String sql="update  member set password=?,name=?,address=? where id=?";
+		try {
+			pstmt=conn.prepareStatement(sql);			
+			pstmt.setString(1,vo.getPwd());
+			pstmt.setString(2,vo.getName());
+			pstmt.setString(3,vo.getAddr());
+			pstmt.setString(4, vo.getId());
+			int result=pstmt.executeUpdate();
+			System.out.println("update result:"+result);
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			discon();
+				
+	}
+
+	public ArrayList<MemberVO> getAllMemberList() throws SQLException{
+		con();
+		ArrayList<MemberVO> list=new ArrayList<MemberVO>();
+		String sql="select * from member";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				list.add(new MemberVO(rs.getString(1),rs.getString(2),
+						rs.getString(3),rs.getString(4)));
+			}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			discon();
+	        return list;
 	
+	
+	}
+	public MemberVO findMember(String id)throws SQLException  { 
+		con();
+		MemberVO vo=null;
+		String sql="select password,name,address from member where id=?";
+		try {
+			pstmt=conn.prepareStatement(sql);
+		    pstmt.setString(1, id);
+		    rs=pstmt.executeQuery();
+		    if(rs.next()){
+		    	vo=new MemberVO(
+		    			id,rs.getString(1),rs.getString(2),rs.getString(3));
+		    }
+			
+			rs.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		discon();
+		return vo;
+		
+	}
+
 }

@@ -21,4 +21,14 @@ public class MemberService {
 		return dao.login(id, pwd);
 	}
 	
+	public MemberVO getMember(String id) throws SQLException {
+		// TODO Auto-generated method stub
+		return dao.findMember(id);
+	}
+	
+	public void edit(MemberVO m) throws SQLException {
+		// TODO Auto-generated method stub
+		dao.updateMember(m);
+	}
+
 }

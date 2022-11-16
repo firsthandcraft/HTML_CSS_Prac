@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +22,13 @@ function registerCheck(){
 		alert("주소를 입력하세요!");
 		return false;
 	}
+	//
+	 if ($('.username_input').attr("check_result") == "fail"){
+		    alert("아이디 중복체크를 해주시기 바랍니다.");
+		    $('.username_input').focus();
+		    return false;
+	 }
+	 
 	f.submit();
 }
 function checkId(){

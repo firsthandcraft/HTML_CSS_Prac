@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>idcheck</title>
 <script>
 function winClose(b){
 	var rf = opener.document.registerForm;
