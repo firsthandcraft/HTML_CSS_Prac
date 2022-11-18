@@ -65,8 +65,9 @@ public class DaoImpl implements Dao {
 	@Override
 	public Board select(int num) {
 		// TODO Auto-generated method stub
-		String sql="select * from board order by num where num=?";
+		String sql="select * from board where num=? order by num";
 		try{con();
+			conn = db.getConnection();
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1,num);
 			rs=pstmt.executeQuery();
@@ -87,6 +88,7 @@ public class DaoImpl implements Dao {
 		String sql="select * from board order by num";
 		try{
 			con();
+			conn = db.getConnection();
 			pstmt=conn.prepareStatement(sql);
 			rs= pstmt.executeQuery();
 			while(rs.next()) {
@@ -124,6 +126,7 @@ public class DaoImpl implements Dao {
 		String sql="delete from board where num =?";
 		try{
 			con();
+			conn = db.getConnection();
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.executeUpdate();

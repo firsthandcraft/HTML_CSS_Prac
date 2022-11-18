@@ -11,10 +11,6 @@
 	<form action="${pageContext.request.contextPath}/WriteController" method="post">
 		<table border="1">
 			<tr>
-				<th>글번호</th>
-				<td><input type="text" value="" name="num" size="45" readonly></td>
-			</tr>
-			<tr>
 				<th>작성자</th>
 				<td><input type="text" value="" name="writer" size="45" readonly></td>
 			</tr>

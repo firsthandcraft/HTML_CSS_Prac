@@ -56,7 +56,7 @@ public class ReadController extends HttpServlet {
 		int num= Integer.parseInt(request.getParameter("num"));
 		Board b = service.getBoard(num);
 		request.setAttribute("b",b);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/board/search.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("board/search.jsp");
 		if(dispatcher!=null) {
 			dispatcher.forward(request, response);
 		}

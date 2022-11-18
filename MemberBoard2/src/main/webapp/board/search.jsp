@@ -6,6 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>search.jsp</title>
+<script>
+function del(num){
+	location.href="${pageContext.request.contextPath}/DelBoardController?num="+num;
+}
+</script>
 </head>
 <body>
 <p>search.jsp</p>
@@ -14,13 +19,39 @@
 		readonly
 	</c:if>
 </c:set>
-<th>작성자</th>
-	<input type="text" value="${b.writer}" name="writer" ${str}>
+<form action="${pageContext.request.contextPath}/EditBoardController" method="post">
+	<table border="1">
+		<tr>
+			<th>글 번호</th>
+			<td><input type="text" value="${b.num }" name="num" size="45"
+			readonly></td>
+		</tr>
+		<tr>
+			<th>작성자</th>
+			<td><input type="text" value="${b.writer}" name="writer" size="45" readonly></td>
+		</tr>
+		<tr>
+			<th>작성날짜</th>
+			<td><input type="text" value="${b.w_date}" name="date" size="45" readonly></td>
+		</tr>
+		<tr>
+			<th>글제목</th>
+			<td><input type="text" value="${b.title}" name="title" size="45" ${str}></td>
+		</tr>		
+		<tr>
+			<th>글내용</th>
+			<td><textarea cols="45" rows="15" name="content"${str}>${b.content}</textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align:center">
+				<c:if test="${sessionScope.id==b.writer}">
+					<input type="submit" value="수정">
+					<input type="button" value="삭제" onClick="del(${b.num})">
+				</c:if>
+			</td>
+		</tr>
+	</table>
 
-<c:if test="${sessionScope.id==b.writer}">
-	<input type="submit" value="수정">
-	<input type="button" value="삭제" onClick="del(${b.num})">
-</c:if>
-	
+</form>
 </body>
 </html>
