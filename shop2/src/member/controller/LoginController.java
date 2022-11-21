@@ -50,7 +50,7 @@ public class LoginController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		Service service = new ServiceImpl();
-		//boolean flag= false;
+		boolean flag= false;
 		
 		//로그인시 필요한 session
 		HttpSession session= request.getSession();
@@ -64,8 +64,9 @@ public class LoginController extends HttpServlet {
 		Member m = service.getMember(id);//id 할당
 		int type=0;//type 할당
 		
-		String path="/view/member/loginForm.jsp";
+		String path="/view/member/result.jsp";
 		if(m !=null && pwd.equals(m.getPwd())) {
+			session.setAttribute("m",m);
 			session.setAttribute("id", id);
 			type= m.getType();
 			session.setAttribute("memberType",type);
@@ -74,10 +75,10 @@ public class LoginController extends HttpServlet {
 			} else if(type==2) {
 				path="order/List";
 			}
+			flag= true;
 		}
 		//일치 하는 값이 있을경우 session이 형성되게
-		//session.setAttribute("flag", flag);
-
+		session.setAttribute("flag", flag);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		
 		if(dispatcher !=null) {

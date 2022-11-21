@@ -9,8 +9,8 @@ public class Order {
 	private int total_price; //최종가격
 	private String o_id; //주문자 아이디 
 	private Date o_date; // 주문날짜 
-	private int o_state; //주문상태
-	private int d_state;//
+	private int o_state; //주문상태  
+	private int d_state;//배송상태 
 	private String prod_name;// 제품이름 
 	private String prod_img; // 제품이미지 
 
