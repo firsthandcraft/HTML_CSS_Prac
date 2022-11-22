@@ -158,7 +158,7 @@ public class DaoImpl implements Dao {
 		// TODO Auto-generated method stub
 		con();
 		try {
-			String sql="delete from shop_product where num=?";
+			String sql="delete shop_product where num=?";
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.executeUpdate();

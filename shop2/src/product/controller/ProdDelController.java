@@ -33,7 +33,7 @@ public class ProdDelController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		doPost(request, response);
 	}
 
 	/**
@@ -41,7 +41,20 @@ public class ProdDelController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.setContentType("text/html;charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");	
+		int num = Integer.parseInt(request.getParameter("num"));
+		Service service= new ServiceImpl();
+		Product p = service.getProduct(num);
+		service.delProduct(num);
+		String uploadPath="C:\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\webapps\\shop_product_img\\";
+		String arr[]=p.getImg().split("/");
+		String fname=arr[arr.length-1];//배열이 0부터 들어가게
+		File f= new File(uploadPath+fname);
+		//System.out.println(f);
+		f.delete();
+		response.sendRedirect("/shop2/seller/List");
 	}
 
 }

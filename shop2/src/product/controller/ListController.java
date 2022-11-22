@@ -46,7 +46,14 @@ public class ListController extends HttpServlet {
 		request.setCharacterEncoding("euc-kr");
 		response.setContentType("text/html;charset=euc-kr");
 		response.setCharacterEncoding("euc-kr");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/member/result.jsp");
+		Service service = new ServiceImpl();
+		HttpSession session = request.getSession(false);
+		String s_id =(String)session.getAttribute("id");
+		//seller의 리스트를 출력해주기 
+		ArrayList<Product> products= service.getProductsById(s_id);
+		request.setAttribute("products", products);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/seller/list.jsp");
 		if(dispatcher !=null) {
 			dispatcher.forward(request, response);
 		}

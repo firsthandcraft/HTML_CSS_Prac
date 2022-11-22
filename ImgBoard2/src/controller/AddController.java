@@ -68,13 +68,16 @@ public class AddController extends HttpServlet {
 			p.setQuantity(Integer.parseInt(multi.getParameter("quantity")));
 			p.setPrice(Integer.parseInt(multi.getParameter("price")));
 			p.setContent(multi.getParameter("content"));
+			//전송한 전체 파일들의 이름을 가져온다. 
 			Enumeration files = multi.getFileNames();
+			//form 태그에서 <input type="file" name="여기에 저장한 이름"/>을 가져온다.
 			while(files.hasMoreElements()) {
 			//hasMoreElement()는 커서 바로 앞에 데이타가 들어있는지를 체크
-				String file1 = (String)files.nextElement();
+				String file1 = (String)files.nextElement();//그에 해당하는 실재 파일 이름을 가져옴
 				//nextElement 다음 칸으로 옮겨줌
 			//String img=multi.getOriginalFileName(file1); --> 안됨
 				img=multi.getFilesystemName(file1);
+				//파일 업로드
 				File file= multi.getFile(file1);	
 				//getOriginalFileName() 메소드는 MultipartReuest 클래스의 생성자 중 중복된 파일을 덮아쓰는 것을 방지하기 위해
 				//파일명이 변경되 전의 파일명을 반환한다.
@@ -85,7 +88,7 @@ public class AddController extends HttpServlet {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-	
+		//dto 클래스의 setImg에 이미지 경로를 넣는다. 
 		p.setImg("/shop_img/"+img);
 		service.add(p);
 		response.sendRedirect("/ImgBoard/seller/List");

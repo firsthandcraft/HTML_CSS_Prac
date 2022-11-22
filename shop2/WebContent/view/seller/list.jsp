@@ -5,9 +5,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>sellerLIST</title>
+
 </head>
 <body>
-
+<a href="${pageContext.request.contextPath}/view/member/result.jsp">내정보</a>
+<a href="${pageContext.request.contextPath}/seller/AddForm">새상품등록</a>
+<h3>내가등록한 상품</h3>
+<table border="1">
+	<tr><th>상품번호</th><th>상품명</th></tr>
+	<c:forEach var="p" items="${products}">
+	<tr>
+		<td>${p.num}</td>
+		<td><a href="${pageContext.request.contextPath}/seller/detail?num=${p.num}">${p.name}</a></td>
+	</tr>
+	</c:forEach>
+</table>
 </body>
 </html>

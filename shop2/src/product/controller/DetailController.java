@@ -36,7 +36,7 @@ public class DetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		doPost(request, response);
 	}
 
 	/**
@@ -46,7 +46,21 @@ public class DetailController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.setContentType("text/html;charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");	
+		Service service= new ServiceImpl();
+		HttpSession session= request.getSession();
+		int type=(Integer)session.getAttribute("memberType");
+		int num = Integer.parseInt(request.getParameter("num"));
+		Product p = service.getProduct(num);
+		String path = "/view/seller/detail.jsp";
+		request.setAttribute("p",p);
+		if(type==2) {
+			path="/view/order/detail.jsp";
+		}
+		RequestDispatcher dispatcher= request.getRequestDispatcher(path);
+		dispatcher.forward(request, response);	
 	}
 
 }
