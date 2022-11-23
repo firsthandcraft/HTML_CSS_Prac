@@ -36,7 +36,8 @@ public class DaoImpl implements Dao {
 		try {
 			if(rs !=null) {
 				rs.close();
-			}
+			}pstmt.close();
+			conn.close();
 			//
 		} catch(Exception e) {
 			e.printStackTrace();
