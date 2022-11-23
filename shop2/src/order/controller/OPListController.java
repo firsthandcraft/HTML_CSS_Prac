@@ -43,10 +43,14 @@ public class OPListController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("euc-kr");
-		response.setContentType("text/html;charset=euc-kr");
-		response.setCharacterEncoding("euc-kr");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/member/result.jsp");
+		response.setContentType("text/html;charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		Service service= new ServiceImpl();
+		ArrayList<Product> products = service.getProductAll();
+		request.setAttribute("products", products);
+		System.out.println("OPListcontroller -> products:"+products);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/order/list.jsp");
 		if(dispatcher !=null) {
 			dispatcher.forward(request, response);
 		}

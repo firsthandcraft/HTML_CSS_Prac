@@ -15,7 +15,11 @@ ${sessionScope.m.name}님 어서오세요
 <a href="${pageContext.request.contextPath}/SearchController">회원 정보 수정</a>
 <a href="${pageContext.request.contextPath}/LogoutController">로그아웃</a>
 <a href="${pageContext.request.contextPath}/DelController">탈퇴하기</a>
-<a href="${pageContext.request.contextPath}/seller/List">쇼핑몰</a>
+<c:choose>
+<c:when test="${m.type==1}"><a href="${pageContext.request.contextPath}/seller/List">판매자 쇼핑몰</a></c:when>
+<c:otherwise><a href="${pageContext.request.contextPath}/order/List">구매자 쇼핑몰</a></c:otherwise>
+</c:choose>
+
 	
 </c:if>
 <c:if test="${empty sessionScope.id}">

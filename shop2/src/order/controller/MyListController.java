@@ -36,7 +36,7 @@ public class MyListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		doPost(request, response);
 	}
 
 	/**
@@ -44,7 +44,26 @@ public class MyListController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		Service service = new ServiceImpl();
+		product.service.Service service_prod= new product.service.ServiceImpl();
+		int o_state = Integer.parseInt(request.getParameter("o_state"));
+		HttpSession session= request.getSession(false);
+		String o_id = (String)session.getAttribute("id");
+
+		ArrayList<Order> list= service.orderList(o_id, o_state);
+		for(Order o:list) {
+			Product p = service_prod.getProduct(o.getPro_num());
+			o.setProd_name(p.getName());
+			o.setProd_img(p.getImg());
+		}
+		System.out.println("MyListController -> o_id :"+o_id+" / o_state :"+ o_state);
+		request.setAttribute("list", list);
+		request.setAttribute("o_state", o_state);
+		String path="/view/order/myList.jsp";
+		RequestDispatcher dispatcher= request.getRequestDispatcher(path);
+		dispatcher.forward(request, response);
+
 	}
+
 
 }

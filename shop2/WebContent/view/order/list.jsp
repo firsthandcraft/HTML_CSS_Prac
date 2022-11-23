@@ -5,11 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>orderList</title>
 </head>
 <body>
-
-
-
+<a href="${pageContext.request.contextPath}/view/member/result.jsp">내정보</a>
+<h3>전체상품</h3>
+<table border="1">
+	<tr>
+		<th>상품이미지</th>
+		<th>상품명</th>
+		<th>상품가격</th>
+	</tr>
+	<c:forEach var="p" items="${products}">
+		<tr>
+			<td><img src="${p.img}" width="50"height="50"></td>
+			<td><a href="${pageContext.request.contextPath}/seller/detail?num=${p.num}">${p.name}</a></td>
+			<td>${p.price}</td>	
+		</tr>
+	</c:forEach>
+</table>
 </body>
 </html>

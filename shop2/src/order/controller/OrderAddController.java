@@ -2,6 +2,7 @@ package order.controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +36,7 @@ public class OrderAddController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		doPost(request, response);
 	}
 
 	/**
@@ -45,7 +46,24 @@ public class OrderAddController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.setContentType("text/html;charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");	
+		Service service= new ServiceImpl();
+		HttpSession session= request.getSession();
+		String o_id = (String) session.getAttribute("id");
+		System.out.println();
+		Order o = new Order();
+		o.setPro_num(Integer.parseInt(request.getParameter("num")));
+		o.setOrder_num(Integer.parseInt(request.getParameter("quantity")));
+		o.setTotal_price(Integer.parseInt(request.getParameter("total_price")));
+		o.setO_id(o_id);
+		o.setO_state(Integer.parseInt(request.getParameter("o_state")));
+		service.addOrder(o);
+		String path="/shop2/order/myList?o_state=";
+		path+=o.getO_state();
+		response.sendRedirect(path);
+		
 	}
 
 }
