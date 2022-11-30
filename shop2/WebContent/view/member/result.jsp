@@ -25,7 +25,7 @@ ${sessionScope.m.name}님 어서오세요
 <c:if test="${empty sessionScope.id}">
 		로그인 실패
 		<a href="${pageContext.request.contextPath}/view/member/loginForm.jsp">로그인화면으로 돌아가기</a>
-		</c:if>
+</c:if>
 
 </body>
 </html>

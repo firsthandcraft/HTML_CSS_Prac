@@ -8,7 +8,7 @@
 <script>
 function intCheck(){
 	var num = document.updateForm.pno;
-	var flag=true;
+	var flag==isNaN(num.value);
 	if(num.value==""){
 		alert("값을 넣어주세요");
 	} else if(flag){

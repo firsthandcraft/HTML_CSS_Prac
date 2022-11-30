@@ -10,7 +10,7 @@ public class Product {
 	private String content;
 	private String s_id;
 
-	public Product() {
+	public Product() { 
 	}
 
 	public Product(int num, String name, int quantity, int price, String img, String content, String s_id) {
