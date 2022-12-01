@@ -46,16 +46,17 @@ public class DaoImpl implements Dao {
 	//
 	public void insert(Product p) {
 		// TODO Auto-generated method stub
-		String sql="insert into shop_product values(seq_shop_product.nextval,?,?,?,?,?,?)";
+		String sql="insert into shop_product values(?,?,?,?,?,?,?)";
 		try {
 			conn= db.getConnection();
 			pstmt= conn.prepareStatement(sql);
-			pstmt.setString(1, p.getName());
-			pstmt.setInt(2, p.getQuantity());
-			pstmt.setInt(3, p.getPrice());
-			pstmt.setString(4, p.getImg());
-			pstmt.setString(5, p.getContent());					
-			pstmt.setString(6, p.getS_id());					
+			pstmt.setInt(1, p.getNum());
+			pstmt.setString(2, p.getName());
+			pstmt.setInt(3, p.getQuantity());
+			pstmt.setInt(4, p.getPrice());
+			pstmt.setString(5, p.getImg());
+			pstmt.setString(6, p.getContent());					
+			pstmt.setString(7, p.getS_id());					
 			pstmt.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -67,7 +68,7 @@ public class DaoImpl implements Dao {
 	
 	public Product select(int num) {
 		// TODO Auto-generated method stub
-		String sql="select * from shop_product where num =?";
+		String sql="select * from shop_product where num =? order by num";
 		try {
 			conn= db.getConnection();
 			pstmt= conn.prepareStatement(sql);
@@ -156,11 +157,7 @@ public class DaoImpl implements Dao {
 			discon();
 		}
 		}
-	
 
-	
-	
-	
 	public int selectNum() {
 		// TODO Auto-generated method stub
 		String sql="select seq_shop_product.nextval from dual";
@@ -171,6 +168,7 @@ public class DaoImpl implements Dao {
 			rs =pstmt.executeQuery();
 			if(rs.next()) {
 				num=rs.getInt(1);
+			
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();

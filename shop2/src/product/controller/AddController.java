@@ -52,16 +52,16 @@ public class AddController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("euc-kr");
-		response.setContentType("text/html;charset=euc-kr");
-		response.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
 		Service service = new ServiceImpl();
 		HttpSession session= request.getSession(false);
 		String s_id=(String)session.getAttribute("id");
 		Product p =new Product();
 		p.setS_id(s_id);
 		p.setNum(service.makeNum());
-		System.out.println(p.getS_id());
+		//System.out.println(p.getNum());
+		//System.out.println(p.getS_id());
 		//image 멀티파트: request, 파일저장경로,용량, 인코딩, 중복파일
 		String img =null;
 		int maxSize=1024*1024*10;
@@ -78,10 +78,10 @@ public class AddController extends HttpServlet {
 			p.setQuantity(Integer.parseInt(multi.getParameter("quantity")));
 			p.setPrice(Integer.parseInt(multi.getParameter("price")));
 			p.setContent(multi.getParameter("content"));
-			System.out.println(p.getName());
-			System.out.println(p.getQuantity());
-			System.out.println(p.getPrice());
-			System.out.println(p.getContent());
+//			System.out.println(p.getName());
+//			System.out.println(p.getQuantity());
+//			System.out.println(p.getPrice());
+//			System.out.println(p.getContent());
 			Enumeration files = multi.getFileNames();
 			while(files.hasMoreElements()) {
 				//hasMoreElement()는 커서 바로 앞에 데이타가 들어있는지를 체크
