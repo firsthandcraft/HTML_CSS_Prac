@@ -37,7 +37,7 @@ public class Findservlet extends HttpServlet {
 		PrintWriter out= response.getWriter();
 		MemberDao dao= new MemberDao();
 		ArrayList<MemberVO> list = dao.getFindMemberList(request.getParameter("membership"));
-	
+		System.out.println(list);
 		if(list.size()!=0) {
 			out.print("<table border='1'>");
 			out.print("<td>Id </td>");

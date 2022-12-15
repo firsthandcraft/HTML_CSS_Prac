@@ -71,6 +71,7 @@ public class MyServlet extends HttpServlet {
 		
 		//NAME
 		out.print("<h3>이름으로 출력</h3>");
+		out.print("<h4>Enumeration</h4>");
 		Enumeration e = request.getParameterNames();
 		while(e.hasMoreElements()) {
 			String name = (String)e.nextElement();
@@ -84,7 +85,8 @@ public class MyServlet extends HttpServlet {
 				out.print(name+":"+value+"<br>");		
 			}
 		}
-		
+		out.print("<hr>");
+		out.print("<h4>Map</h4>");
 		//MAP
 		Map<String,String[]> map= request.getParameterMap();
 		Set<String> set = map.keySet();

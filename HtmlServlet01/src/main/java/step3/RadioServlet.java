@@ -33,6 +33,7 @@ public class RadioServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		String angel=request.getParameter("angel");
+		
 		if(angel.equals("a")) {
 			out.println(angel+"<img src='https://static.hubzum.zumst.com/hubzum/2020/08/21/10/16af61affa8841f58caaedd241064824.jpg'>");
 		} else if(angel.equals("b")) {

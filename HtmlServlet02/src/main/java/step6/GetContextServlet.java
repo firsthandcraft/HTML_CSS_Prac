@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class GetContentServelt
+ * Servlet implementation class GetContextServlet
  */
-@WebServlet("/GetContentServelt")
+@WebServlet("/GetContextServlet")
 public class GetContextServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

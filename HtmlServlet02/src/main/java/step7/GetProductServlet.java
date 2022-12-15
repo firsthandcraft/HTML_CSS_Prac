@@ -36,11 +36,11 @@ public class GetProductServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		ServletContext context= this.getServletContext();
 		ProductVO vo = (ProductVO)context.getAttribute("product");
-		out.print(this.getServletName()+"ServletContextㅇㅇ vo getting");
+		out.print(this.getServletName()+"ServletContext로 부터 vo getting");
 		out.print("<hr>");
-		out.print("�븘�씠�뵒 :" + vo.getId()+"<hr>");
-		out.print("�씠由� :" + vo.getName()+"<hr>");
-		out.print("媛�寃� :" + vo.getPrice()+"<hr>");
+		out.print("아이디 : "+vo.getId()+"<hr>");
+		out.print("이름 : "+vo.getName()+"<hr>");
+		out.print("가격 : "+vo.getPrice()+"<hr>");
 		out.close();
 		
 	}

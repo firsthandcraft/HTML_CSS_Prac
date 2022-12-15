@@ -44,6 +44,8 @@ public class CheckBoxServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8"); 
 		PrintWriter out= response.getWriter();
 		String[] menu= request.getParameterValues("menu");
+		//getParameterValue- 한개 데이터안에 체크박스 같은 여러개 선택경우 사용 대신 string 타입. 
+
 		for(var i=0; i<menu.length;i++){
 			out.println(menu[i]+"체크완료");
 		}

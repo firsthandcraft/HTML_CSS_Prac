@@ -1,6 +1,6 @@
 package model;
 /*--11107 
-grop table member;
+drop table member;
 create table member(
     id varchar2(50) primary key,
     password varchar2(50) not null,

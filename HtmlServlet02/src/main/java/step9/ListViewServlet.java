@@ -27,7 +27,7 @@ public class ListViewServlet extends HttpServlet {
 	//ArrayList만들기 
     private ArrayList list = new ArrayList();
     
-    //source > override implement Method>Generic Servlet > int()추가
+    //source > override implement Method> Generic Servlet > int()추가
 	@Override
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub

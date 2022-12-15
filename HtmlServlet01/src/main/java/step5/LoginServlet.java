@@ -34,11 +34,10 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		String loginId=request.getParameter("userId");
 		String loginPw=request.getParameter("userPw");
-		//getParameterValue- 한개 데이터안에 체크박스 같은 여러개 선택경우 사용 대신 string 타입. 
 		if(loginId.equals("java") && loginPw.equals("1234")) {//equals -- 문자값비교
 			out.println("로그인 성공");
 		} else{
-			out.println("로그인 실패 "+"<a href='/Web3/step5.html'>돌아가기</a>");		
+			out.println("로그인 실패 "+"<a href='/HtmlServlet01/step5.html'>돌아가기</a>");		
 		} 
 		out.close();
 		

@@ -43,6 +43,7 @@ public class RegisterServlet extends HttpServlet {
 		MemberVO vo = new MemberVO(id,pass,name,addr);
 		dao.addMemberList(vo);
 		out.print(name+"님 환영합니다.");
+		out.print("<a href='login.html'>Login</a>");
 		out.close();
 	
 	}

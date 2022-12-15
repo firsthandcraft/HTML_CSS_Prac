@@ -35,14 +35,13 @@ public class SetProductServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		ServletContext context = this.getServletContext();//�궡媛� �궗�슜�븯�뒗ServletContext瑜� 媛��졇�삩�떎.
-		//�뜲�씠�꽣瑜� 怨듭쑀�븯�뒗 怨듦컙 scope媛앹껜
-		context.setAttribute("product", new ProductVO("nexus","�꽖�꽌�뒪s",100));//�븵�쓽 �씠由� , �뜲�씠�꽣
-		out.print("ServletContext�뿉 data setting...");
-		out.print(this.getServletName());
-		out.print("<a href='GetProductServlet'>GetProductServlet</a>");
+		ServletContext context = this.getServletContext();
+		context.setAttribute("product", new ProductVO("nexus","넥서스S",100));
+		out.print("ServletContext에 data setting...");
+		out.print(this.getServletName()+"ServletContext에 vo setting"+"<hr>");
+		//getServletName() -->현재 서블릿 이름
+		out.print("<a href=GetProductServlet>GetProductServlet으로 이동</a>");
 		out.close();
-	
 	
 	}
 	/**

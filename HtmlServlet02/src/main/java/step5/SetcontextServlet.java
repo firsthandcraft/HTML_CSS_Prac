@@ -45,7 +45,7 @@ public class SetcontextServlet extends HttpServlet {
 		//데이터를 공유하는 공간 scope객체
 		context.setAttribute("info", "손연재");//앞의 이름 , 데이터
 		out.print("ServletContext에 data setting...");
-		out.print("<a href='GetContextServlet'>GetContextServlet</a>");
+		out.print("<a href='GetContextServlet'>GetContextServelt</a>");
 		out.close();
 	}
 
