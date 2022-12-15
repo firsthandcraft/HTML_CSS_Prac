@@ -91,7 +91,7 @@ public class AddController extends HttpServlet {
 		//dto 클래스의 setImg에 이미지 경로를 넣는다. 
 		p.setImg("/shop_img/"+img);
 		service.add(p);
-		response.sendRedirect("/ImgBoard/seller/List");
+		response.sendRedirect("/ImgUploads01/seller/List");
 		
 	}
 

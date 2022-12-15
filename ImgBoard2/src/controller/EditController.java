@@ -104,7 +104,7 @@ public class EditController extends HttpServlet {
 			System.out.println(p.getImg());
 		}
 		service.editProduct(p);
-		response.sendRedirect("/ImgBoard/seller/List");
+		response.sendRedirect("/ImgUploads01/seller/List");
 
 
 	}

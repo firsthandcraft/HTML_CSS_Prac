@@ -64,7 +64,12 @@ public class FileUploadTest extends HttpServlet {
         // 파일 설명
         String fileDescription = req.getParameter("fileDescription");
         // 파일 이름
-        Part part = req.getPart("fileName");
+        Part part =new Part();
+         part = req.getPart("fileName");
+        System.out.println("part:"+part);
+        
+        
+        
         String fileName = getFilename(part);
         if (!fileName.isEmpty()) {
             part.write("C:\\uploadTest\\"+fileName);

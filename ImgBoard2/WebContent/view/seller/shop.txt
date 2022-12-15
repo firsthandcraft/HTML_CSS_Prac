@@ -1,4 +1,4 @@
-
+drop table shop_product;
 create table shop_product(
 num	 number primary key,
 name	 varchar2(500) not null,
@@ -7,6 +7,6 @@ price	  number not null,
 img	  varchar2(500),
 content   	 varchar2(500)
 );
-
+select * from shop_product;
 create sequence seq_shop_product;
-
+drop sequence seq_shop_product;
