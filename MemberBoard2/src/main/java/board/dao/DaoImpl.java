@@ -49,7 +49,7 @@ public class DaoImpl implements Dao {
 	@Override
 	public void insert(Board b) {
 		// TODO Auto-generated method stub
-		String sql="insert into board values(seq_board.nextval,?,sysdate,?,?)";
+		String sql="insert into board values(seq_board.nextval,sysdate,?,?,?)";
 		try{con();
 			conn=db.getConnection();
 			pstmt=conn.prepareStatement(sql);

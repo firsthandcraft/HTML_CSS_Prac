@@ -16,8 +16,29 @@
 		<a href="${pageContext.request.contextPath}/SearchController">내정보수정</a><br>
 		<a href="${pageContext.request.contextPath}/LogoutController">로그아웃</a><br>
 		<a href="${pageContext.request.contextPath}/DelController">탈퇴</a><br>
-	<c:redirect url="/ListController"></c:redirect>
+		<h3>list</h3>
+	<c:if test="${not empty list}">
+		<table border="1">
+			<tr>
+				<th>글번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+			</tr>
+			<c:forEach var="b" items="${list}">
+			<tr>
+				<td>${b.num}</td>
+				<td><a href="${pageContext.request.contextPath}/ReadController?num=${b.num}">${b.title}</a></td>
+				<td>${b.writer}</td>
+			</tr>
+			</c:forEach>
+		</table>
 	
+	</c:if>
+	<c:if test="${empty list}">
+		작성된 글이 없습니다.
+	</c:if>
+
+	<a href="${pageContext.request.contextPath}/board/form.jsp">글작성</a>
 	</c:if>
 	<c:if test="${empty sessionScope.id}">
 		로그인 실패

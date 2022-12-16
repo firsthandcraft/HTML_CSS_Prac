@@ -52,7 +52,7 @@ public class ListController extends HttpServlet {
 		Service service =new ServiceImpl();
 		ArrayList<Board> list= (ArrayList)service.getAll();
 		request.setAttribute("list",list);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/board/list.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/result.jsp");
 		if(dispatcher!=null) {
 			dispatcher.forward(request, response);
 		}

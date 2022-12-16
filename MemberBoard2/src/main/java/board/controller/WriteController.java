@@ -1,6 +1,7 @@
 package board.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import board.service.Service;
 import board.service.ServiceImpl;
 import model.Board;
+import model.Product;
 
 /**
  * Servlet implementation class WriteController
@@ -56,7 +58,10 @@ public class WriteController extends HttpServlet {
 		b.setWriter(writer);
 		b.setTitle(title);
 		b.setContent(content);
-		service.writeBoard(b);
+		//b=service.writeBoard(id);
+		/*//seller의 리스트를 출력해주기 
+		ArrayList<Product> products= service.getProductsById(s_id);
+		request.setAttribute("products", products);*/
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/result.jsp");
 		if(dispatcher!=null) {
 			dispatcher.forward(request, response);

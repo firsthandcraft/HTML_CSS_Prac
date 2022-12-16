@@ -52,14 +52,15 @@ public class LoginController extends HttpServlet {
 		String pwd = request.getParameter("pwd");
 		
 		//
-		Member m=service.getMember(id);
+		Member m= new Member();
+		m=service.getMember(id);
 		if(m!=null && pwd.equals(m.getPwd())) {
 			session.setAttribute("m",m);
 			session.setAttribute("id",id);
 			flag= true;
 		}
 		session.setAttribute("flag", flag);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/result.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/ListController");
 		if(dispatcher!=null) {
 			dispatcher.forward(request, response);
 		}

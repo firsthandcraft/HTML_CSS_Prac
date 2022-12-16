@@ -106,7 +106,7 @@ public class BoardDaoImpl implements BoardDao {
 	public void update(Article a) {
 		// TODO Auto-generated method stub
 		con();
-		String sql="update board set pwd=?,date=sysdate,content=? where num=?";
+		String sql="update board set pwd=?,w_date=sysdate,content=? where num=?";
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1,a.getPwd());

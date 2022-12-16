@@ -1,6 +1,6 @@
-drop table member
-drop table board
-
+drop table member;
+drop table board;
+drop sequence seq_board;
 create table member(
 id varchar2(20) primary key,
 pwd varchar2(20) not null,

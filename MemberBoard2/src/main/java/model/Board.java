@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class Board {
 	private int num;
-	private String writer;
 	private Date w_date;
+	private String writer;
 	private String title;
 	private String content;
 

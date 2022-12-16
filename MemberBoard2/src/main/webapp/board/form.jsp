@@ -9,6 +9,7 @@
 <body>
 <h3>게시판</h3>
 	<form action="${pageContext.request.contextPath}/WriteController" method="post">
+	<c:forEach var="b" items="${products}">
 		<table border="1">
 			<tr>
 				<th>작성자</th>
@@ -31,6 +32,7 @@
 					<input type="submit" value="작성"></td>
 			</tr>
 		</table>
+		</c:forEach>
 	</form>
 </body>
 </html>

@@ -89,6 +89,7 @@ public class Controller extends HttpServlet {
 		}else if(type.equals("search")) {
 			session=request.getSession(false);
 			id= (String)session.getAttribute("id");
+			m=new Member();
 			m=service.getMember(id);
 			request.setAttribute("m",m);
 			result="member/search.jsp";
